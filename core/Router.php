@@ -34,8 +34,8 @@ class Router
         $method = $this->request->getMethod();
         $callback = $this->routes[$method][$path] ?? false;
         if ($callback === false) {
-            return "Not found";
-            exit;
+            $this->response->setStatusCode(404);
+            return $this->renderView( "_404");
         }
         if (is_string($callback)) {
             $this->response->setStatusCode(404);
@@ -48,6 +48,12 @@ class Router
     {
         $layoutContent = $this->layoutContent();
         $viewContent = $this->renderOnlyView($view);
+        return str_replace('{{content}}', $viewContent, $layoutContent);
+    }
+
+    public function renderContent($viewContent)
+    {
+        $layoutContent = $this->layoutContent();
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
 
@@ -64,6 +70,7 @@ class Router
         include_once Application::$ROOT_DIR . "/views/$view.php";
         return ob_get_clean();
     }
+
 
 
 }
