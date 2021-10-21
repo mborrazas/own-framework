@@ -1,0 +1,20 @@
+{
+    "name": "administrador/own-framework",
+    "autoload": {
+        "psr-4": {
+            "Administrador\\OwnFramework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Matias Borrazas",
+            "email": "borrazas.trabajo@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
