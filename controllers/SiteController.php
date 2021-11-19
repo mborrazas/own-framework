@@ -2,7 +2,23 @@
 
 namespace app\controllers;
 
-class SiteController
+use app\core\Controller;
+
+class SiteController extends Controller
 {
+    public function home()
+    {
+        return $this->render('home');
+    }
+
+    public function contact()
+    {
+        return $this->render('contact');
+    }
+
+    public function handleContact()
+    {
+
+    }
 
 }
