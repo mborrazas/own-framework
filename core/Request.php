@@ -21,16 +21,24 @@ class Request
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
+    public function isGet(){
+        return $this->method() === 'get';
+    }
+
+    public function isPost(){
+        return $this->method() === 'post';
+    }
+
     public function getBody(){
         $body = [];
 
-        if($this->method() === 'get'){
+        if($this->isGet()){
             foreach($_GET as $key => $value){
                 $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
         }
 
-        if($this->method() === 'post'){
+        if($this->isPost()){
             foreach($_POST as $key => $value){
                 $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
