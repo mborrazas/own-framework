@@ -1,10 +1,5 @@
 {
-    "name": "administrador/own-framework",
-    "autoload": {
-        "psr-4": {
-            "Administrador\\OwnFramework\\": "src/"
-        }
-    },
+    "name": "matiasborrazas/framework",
     "authors": [
         {
             "name": "Matias Borrazas",

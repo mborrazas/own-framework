@@ -1,18 +1,20 @@
 <?php
 
 namespace app\core;
-
+/**
+ * Class Application
+ *
+ * @author Matias Borrazas <borrazas.trabajo@gmail.com>
+ * @package app\core
+ */
 
 class Application
 {
-    public static string $ROOT_DIR;
-    public Router $router;
-    public Request $request;
-    public Response $response;
-    public static Application $app;
-    public Controller $controller;
-
-
+    public static $ROOT_DIR;
+    public $router;
+    public $request;
+    public $response;
+    public static $app;
     public function __construct($rootPath)
     {
         self::$ROOT_DIR = $rootPath;
@@ -24,15 +26,6 @@ class Application
 
     public function run()
     {
-        echo $this->router->resolve();
+       echo $this->router->resolve();
     }
-
-    public function getController(): \app\core\Controller {
-        return $this->controller;
-    }
-
-    public function setController(\App\Core\Controller $controller): void{
-        $this->controller = $controller;
-    }
-
 }
